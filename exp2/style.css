@@ -1,0 +1,125 @@
+/* Simple, modern styling for the to-do app */
+:root {
+  --bg: #121212;
+  --card: #0f0f10;
+  --accent: #4caf50;
+  --muted: #9aa0a6;
+  --text: #e8e8e8;
+}
+
+body {
+  margin: 20px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+header h1 {
+  font-size: 28px;
+  margin-bottom: 18px;
+}
+
+.app {
+  max-width: 820px;
+}
+
+form#taskForm {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+#taskInput {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #222;
+  background: #101010;
+  color: var(--text);
+  outline: none;
+}
+
+#addBtn {
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: var(--accent);
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+#searchInput {
+  flex: 1;
+  padding: 8px 10px;
+  border-radius: 6px;
+  background: #0e0e0e;
+  color: var(--text);
+  border: 1px solid #222;
+}
+
+.controls button {
+  padding: 8px 10px;
+  border-radius: 6px;
+  background: #2b2b2b;
+  color: var(--text);
+  border: 1px solid #222;
+  cursor: pointer;
+}
+
+#taskList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.task-item {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  background: var(--card);
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.45);
+}
+
+.task-item .text {
+  flex: 1;
+  font-size: 16px;
+}
+
+.task-item.completed .text {
+  text-decoration: line-through;
+  color: var(--muted);
+  opacity: 0.85;
+}
+
+.btn-small {
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background: #232323;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.btn-delete {
+  background: #7a1f1f;
+  margin-left: 4px;
+}
+
+/* small responsive tweak */
+@media (max-width: 520px) {
+  header h1 { font-size: 20px; }
+  #addBtn { padding: 8px 10px; }
+}

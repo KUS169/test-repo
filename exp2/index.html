@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Exp2 — Dynamic To-Do List</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+  <!-- jQuery (required) -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="exp2.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Experiment 2 — Dynamic To-Do List</h1>
+  </header>
+
+  <main class="app">
+    <form id="taskForm" autocomplete="off">
+      <input id="taskInput" type="text" placeholder="Add a new task..." required />
+      <button type="submit" id="addBtn">Add</button>
+    </form>
+
+    <div class="controls">
+      <input id="searchInput" type="text" placeholder="Filter tasks (search)..." />
+      <button id="clearCompleted">Clear Completed</button>
+      <button id="clearAll">Clear All</button>
+    </div>
+
+    <ul id="taskList" aria-live="polite"></ul>
+
+    <footer>
+      <small>Exp2 — Kush (adapted)</small>
+    </footer>
+  </main>
+</body>
+</html>

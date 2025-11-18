@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Exp4 — Image Gallery with Lightbox</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="exp4.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Experiment 4 — Image Gallery</h1>
+  </header>
+
+  <main class="gallery-app">
+    <p class="lead">Click any thumbnail to open the lightbox. Use ← / → keys or the buttons. Press Esc to close.</p>
+
+    <div id="gallery" class="gallery">
+      <!-- thumbnails with explicit data-full for the lightbox -->
+      <img class="thumb" data-index="0"
+           src="https://picsum.photos/id/1015/320/200"
+           data-full="https://picsum.photos/id/1015/1000/600"
+           alt="Landscape 1">
+
+      <img class="thumb" data-index="1"
+           src="https://picsum.photos/id/1025/320/200"
+           data-full="https://picsum.photos/id/1025/1000/600"
+           alt="Landscape 2">
+
+      <img class="thumb" data-index="2"
+           src="https://picsum.photos/id/1035/320/200"
+           data-full="https://picsum.photos/id/1035/1000/600"
+           alt="Landscape 3">
+
+      <img class="thumb" data-index="3"
+           src="https://picsum.photos/id/1045/320/200"
+           data-full="https://picsum.photos/id/1045/1000/600"
+           alt="Landscape 4">
+
+      <img class="thumb" data-index="4"
+           src="https://picsum.photos/id/1055/320/200"
+           data-full="https://picsum.photos/id/1055/1000/600"
+           alt="Landscape 5">
+
+      <img class="thumb" data-index="5"
+           src="https://picsum.photos/id/1065/320/200"
+           data-full="https://picsum.photos/id/1065/1000/600"
+           alt="Landscape 6">
+    </div>
+
+    <div class="controls">
+      <button id="prevBtn" class="ctrl">◀ Prev</button>
+      <button id="playBtn" class="ctrl">Start Slideshow</button>
+      <button id="nextBtn" class="ctrl">Next ▶</button>
+    </div>
+
+    <footer><small>Exp4 — Kush (adapted)</small></footer>
+  </main>
+
+  <!-- Lightbox / Modal -->
+  <div id="lightbox" class="lightbox hidden" role="dialog" aria-hidden="true">
+    <button id="closeLb" class="lb-close" aria-label="Close">✕</button>
+    <button id="prevLb" class="lb-nav lb-prev" aria-label="Previous">◀</button>
+    <div class="lb-content">
+      <img id="lbImage" src="" alt="" />
+      <div id="caption" class="caption"></div>
+    </div>
+    <button id="nextLb" class="lb-nav lb-next" aria-label="Next">▶</button>
+  </div>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="todoApp">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do App | AngularJS + jQuery</title>
+
+  <!-- Include AngularJS and jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- Link to external JS files -->
+  <script src="app.js"></script>
+  <script src="effects.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f3f3;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 500px;
+      margin: 50px auto;
+      background: white;
+      padding: 20px 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+    .input-group {
+      display: flex;
+      justify-content: space-between;
+    }
+    input[type="text"] {
+      flex: 1;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      margin-right: 10px;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px 16px;
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 20px;
+    }
+    li {
+      background-color: #f9f9f9;
+      margin-bottom: 8px;
+      padding: 10px 14px;
+      border-radius: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: 0.2s;
+    }
+    li.completed {
+      text-decoration: line-through;
+      color: gray;
+      background-color: #eaeaea;
+    }
+    .delete-btn {
+      color: red;
+      cursor: pointer;
+      font-weight: bold;
+      margin-left: 10px;
+    }
+    .clear-all {
+      margin-top: 15px;
+      width: 100%;
+      background: #e53935;
+    }
+  </style>
+</head>
+
+<body ng-controller="todoCtrl">
+
+  <div class="container">
+    <h2>📝 To-Do List</h2>
+
+    <div class="input-group">
+      <input type="text" ng-model="newTask" placeholder="Add new task..." id="taskInput">
+      <button ng-click="addTask()">Add</button>
+    </div>
+
+    <ul>
+      <li ng-repeat="task in tasks" ng-class="{completed: task.done}">
+        <span ng-click="toggleTask(task)">{{task.text}}</span>
+        <span class="delete-btn" ng-click="removeTask($index)">✕</span>
+      </li>
+    </ul>
+
+    <button class="clear-all" ng-click="clearTasks()">Clear All</button>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Exp5 — Interactive Quiz App</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="exp5.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Experiment 5 — Interactive Quiz</h1>
+  </header>
+
+  <main class="quiz-app">
+    <section class="card">
+      <div class="meta">
+        <div id="qCounter">Question 1 / 1</div>
+        <div id="timer">Time: <span id="timeLeft">00</span>s</div>
+      </div>
+
+      <div id="questionArea" class="question-area">
+        <h2 id="questionText">Question will appear here</h2>
+        <ul id="choices" class="choices"></ul>
+      </div>
+
+      <div class="controls">
+        <button id="prevBtn" class="btn">◀ Previous</button>
+        <button id="nextBtn" class="btn primary">Next ▶</button>
+        <button id="submitBtn" class="btn success">Submit Quiz</button>
+      </div>
+
+      <div id="feedback" class="feedback" aria-live="polite"></div>
+    </section>
+
+    <section id="resultCard" class="card hidden">
+      <h2>Result</h2>
+      <p id="scoreText"></p>
+      <button id="reviewBtn" class="btn">Review Answers</button>
+      <button id="restartBtn" class="btn primary">Restart Quiz</button>
+    </section>
+
+    <footer>
+      <small>Exp5 — Kush (adapted)</small>
+    </footer>
+  </main>
+</body>
+</html>

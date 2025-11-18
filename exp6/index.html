@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Exp6 — Live Markdown Editor</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="exp6.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Experiment 6 — Live Markdown Editor</h1>
+  </header>
+
+  <main class="md-app">
+    <div class="toolbar">
+      <button id="downloadMd" class="btn">Download .md</button>
+      <button id="exportHtml" class="btn">Export HTML</button>
+      <input id="openFile" type="file" accept=".md,text/markdown,text/plain" />
+      <button id="clearBtn" class="btn warn">Clear</button>
+      <div class="counts">
+        <span id="wordCount">Words: 0</span>
+        <span id="charCount">Chars: 0</span>
+      </div>
+    </div>
+
+    <div class="panes">
+      <section class="pane">
+        <h2>Editor</h2>
+        <textarea id="editor" placeholder="Write Markdown here..."></textarea>
+      </section>
+
+      <section class="pane">
+        <h2>Preview</h2>
+        <div id="preview" class="preview" aria-live="polite"></div>
+      </section>
+    </div>
+
+    <footer>
+      <small>Exp6 — Kush (adapted) — Ctrl/Cmd+S to save .md</small>
+    </footer>
+  </main>
+</body>
+</html>
