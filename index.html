@@ -1,28 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Web Technology Lab – Experiments</title>
+  <meta charset="utf-8" />
+  <title>Web Technology Lab – Experiments</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    body { font-family: Arial, Helvetica, sans-serif; padding: 28px; background:#f6f8fb; color:#222; }
+    header { margin-bottom: 24px; }
+    h1 { margin:0 0 8px 0; font-size:26px; }
+    p.lead { margin:0 0 16px 0; color:#555; }
+    .container { max-width:900px; margin:0 auto; background:#fff; padding:20px; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.06); }
+    ul.exps { list-style:none; padding:0; display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:12px; }
+    ul.exps li { background:#fafafa; border:1px solid #eee; padding:12px; border-radius:6px; }
+    a.link { color:#0366d6; text-decoration:none; font-weight:600; }
+    footer { margin-top:18px; font-size:13px; color:#666; }
+  </style>
 </head>
 <body>
-    <h1>Welcome to My Web Technology Lab</h1>
-    <p>This page contains links to all my experiments.</p>
+  <div class="container">
+    <header>
+      <h1>Web Technology Lab — Experiments</h1>
+      <p class="lead">Repository: <a class="link" href="https://github.com/KUS169/test-repo">https://github.com/KUS169/test-repo</a></p>
+    </header>
 
-    <h2>GitHub Repository</h2>
-    <p><a href="https://github.com/KUS169/test-repo">Click here to view my GitHub Repo</a></p>
+    <section>
+      <h2>Experiments</h2>
+      <ul class="exps">
+        <li><a class="link" href="exp1/">Experiment 1 — Basic HTML</a></li>
+        <li><a class="link" href="exp2/">Experiment 2 — HTML Forms</a></li>
+        <li><a class="link" href="exp3/">Experiment 3 — CSS Layouts</a></li>
+        <li><a class="link" href="exp4/">Experiment 4 — JS DOM & Events</a></li>
+        <li><a class="link" href="exp5/">Experiment 5 — JS + CSS</a></li>
+        <li><a class="link" href="exp6/">Experiment 6 — Advanced HTML / Data</a></li>
+        <li><a class="link" href="exp7/">Experiment 7 — Mini Project</a></li>
+        <li><a class="link" href="exp8/">Experiment 8 — Node + MongoDB (User mgmt)</a></li>
+        <li><a class="link" href="exp9/">Experiment 9 — Express + Auth + Todo</a></li>
+        <li><a class="link" href="exp10/">Experiment 10 — D3 Visualizations</a></li>
+      </ul>
+    </section>
 
-    <h2>Experiments</h2>
-    <ul>
-        <li><a href="exp1/">Experiment 1</a></li>
-        <li><a href="exp2/">Experiment 2</a></li>
-        <li><a href="exp3/">Experiment 3</a></li>
-        <li><a href="exp4/">Experiment 4</a></li>
-        <li><a href="exp5/">Experiment 5</a></li>
-        <li><a href="exp6/">Experiment 6</a></li>
-        <li><a href="exp7/">Experiment 7</a></li>
-        <li><a href="exp8/">Experiment 8</a></li>
-        <li><a href="exp9/">Experiment 9</a></li>
-        <li><a href="exp10/">Experiment 10</a></li>
-    </ul>
+    <footer>
+      <p>Last updated: <span id="ts"></span></p>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('ts').textContent = new Date().toLocaleString();
+  </script>
 </body>
 </html>
