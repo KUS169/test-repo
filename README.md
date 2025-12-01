@@ -17,6 +17,7 @@ The repository includes the following folders:
 - **exp7/** – Experiment 7 files
 - **exp8/** – Experiment 8 files
 - **exp9/** – Experiment 9 files
+- **exp10/** – Experiment 10 files
 - **server/** – Server-side scripts or backend-related files  
 - **to-do app/** – To-Do List application  
 - **README.md** – Documentation file
