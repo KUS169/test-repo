@@ -1,0 +1,27 @@
+{
+  "name": "gitscm",
+  "version": "1.0.0",
+  "description": "This repository contains multiple JavaScript and HTML experiments, assignments, and small applications created by **KUS169**.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KUS169/test-repo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KUS169/test-repo/issues"
+  },
+  "homepage": "https://github.com/KUS169/test-repo#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "mongoose": "^9.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}

@@ -1,66 +1,73 @@
-// app.js
 var app = angular.module("todoApp", []);
 
-app.controller("todoCtrl", function($scope, $timeout) {
-  // Load tasks from localStorage or start with empty array
-  $scope.tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+app.controller("todoCtrl", function($scope, $http) {
 
-  // Utility: persist current tasks array to localStorage
-  function saveTasks() {
-    try {
-      localStorage.setItem("tasks", JSON.stringify($scope.tasks));
-    } catch (e) {
-      console.error("Failed to save tasks to localStorage", e);
-    }
-  }
+  const API_BASE = "http://localhost:4000/api";
 
-  // Add new task
+  $scope.tasks = [];
+  $scope.newTask = "";
+
+  // Load tasks from MongoDB
+  $scope.loadTasks = function() {
+    $http.get(API_BASE + "/tasks")
+      .then(function(response) {
+        $scope.tasks = response.data;
+      })
+      .catch(function(error) {
+        console.error("Load error", error);
+      });
+  };
+
+  // Add task
   $scope.addTask = function() {
-    if ($scope.newTask && $scope.newTask.trim() !== "") {
-      $scope.tasks.push({ text: $scope.newTask.trim(), done: false });
-      $scope.newTask = "";
-      saveTasks();
+    if (!$scope.newTask) return;
 
-      // Trigger custom jQuery effect (optional)
-      $("#taskInput").trigger("taskAdded");
-    }
+    $http.post(API_BASE + "/tasks", { text: $scope.newTask })
+      .then(function(response) {
+        $scope.tasks.unshift(response.data);
+        $scope.newTask = "";
+      })
+      .catch(function(error) {
+        console.error("Add error", error);
+      });
   };
 
-  // Toggle completion status
+  // Toggle task
   $scope.toggleTask = function(task) {
-    task.done = !task.done;
-    saveTasks();
-
-    // trigger event with task text and done state
-    $(document).trigger("taskToggled", [task.text, task.done]);
+    $http.put(API_BASE + "/tasks/" + task._id, { done: !task.done })
+      .then(function(response) {
+        task.done = response.data.done;
+      })
+      .catch(function(error) {
+        console.error("Toggle error", error);
+      });
   };
 
-  // Remove single task by index
+  // Delete task
   $scope.removeTask = function(index) {
-    if (index >= 0 && index < $scope.tasks.length) {
-      var removed = $scope.tasks.splice(index, 1);
-      saveTasks();
-      $(document).trigger("taskRemoved", [removed[0] ? removed[0].text : ""]);
-    }
+    let task = $scope.tasks[index];
+
+    $http.delete(API_BASE + "/tasks/" + task._id)
+      .then(function() {
+        $scope.tasks.splice(index, 1);
+      })
+      .catch(function(error) {
+        console.error("Delete error", error);
+      });
   };
 
   // Clear all tasks
   $scope.clearTasks = function() {
-    if ($scope.tasks.length === 0) return;
-    if (confirm("Are you sure you want to clear all tasks?")) {
-      $scope.tasks = [];
-      saveTasks();
-      $(document).trigger("tasksCleared");
-    }
+    $http.delete(API_BASE + "/tasks")
+      .then(function() {
+        $scope.tasks = [];
+      })
+      .catch(function(error) {
+        console.error("Clear error", error);
+      });
   };
 
-  // Allow editing task (optional UX)
-  $scope.editTask = function(task) {
-    // you can implement inline edit UI if desired
-    // for now we simply focus on persistency + basic actions
-  };
+  // Load tasks initially
+  $scope.loadTasks();
 
-  // Ensure UI shows tasks that were loaded on start
-  // (Angular will bind automatically, but we can trigger a small digest if needed)
-  $timeout(function(){}, 0);
 });
