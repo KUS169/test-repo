@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Exp10 — D3.js Experiments</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body { font-family: Arial, Helvetica, sans-serif; padding: 20px; background:#f8f9fb }
+    svg { border: 1px solid #e0e0e0; background: white; display:block; margin-bottom: 20px;}
+    .chart-title { font-weight: bold; margin-top: 12px; }
+  </style>
+</head>
+<body>
+  <h1>Experiment 10 — D3.js visualizations</h1>
+
+  <div>
+    <p class="chart-title">10.1 — Simple Bar Chart (SVG + D3)</p>
+    <svg id="barChart" width="600" height="200"></svg>
+  </div>
+
+  <div>
+    <p class="chart-title">10.2 — Shapes & interactive controls</p>
+    <svg id="shapes" width="600" height="200"></svg>
+  </div>
+
+  <div>
+    <p class="chart-title">10.3 — Select & modify element</p>
+    <div id="select-demo">
+      <div id="myDiv">Original Text</div>
+    </div>
+  </div>
+
+  <div>
+    <p class="chart-title">10.4 — Load CSV and make a simple plot</p>
+    <svg id="csvChart" width="600" height="300"></svg>
+  </div>
+
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
